@@ -29,7 +29,8 @@ const Process: React.FC = () => {
         </h2>
 
         <div className="relative flex items-center justify-center w-full overflow-x-auto py-12 scrollbar-none">
-          <div className="flex items-center justify-center min-w-max px-12">
+          {/* Increased horizontal padding so outer rings aren't clipped on scroll */}
+          <div className="flex items-center justify-center min-w-max px-16">
             {steps.map((step, idx) => {
               const isActive = activeStep === step.id;
 
@@ -37,8 +38,9 @@ const Process: React.FC = () => {
                 <div
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
+                  /* Decreased negative margins to bring the card circles further out */
                   className={`relative flex items-center justify-center cursor-pointer select-none transition-all duration-300 ${
-                    idx !== 0 ? "-ml-8 sm:-ml-12 md:-ml-14 lg:-ml-16" : ""
+                    idx !== 0 ? "-ml-4 sm:-ml-6 md:-ml-8 lg:-ml-6" : ""
                   }`}
                   style={{
                     zIndex: isActive ? 10 : 5 - Math.abs(activeStep - idx),
@@ -64,7 +66,8 @@ const Process: React.FC = () => {
                     }`}
                   >
                     <span
-                      className={`text-xs sm:text-sm md:text-base tracking-tight leading-snug wrap-break-word max-w-30 transition-colors duration-300 ${
+                      /* Fixed the text breaking properties and removed the rigid max-width */
+                      className={`text-xs sm:text-sm md:text-base tracking-tight leading-snug wrap-break-word max-w-[85%] transition-colors duration-300 ${
                         isActive
                           ? "font-bold text-[#111111]"
                           : "font-medium text-gray-700"

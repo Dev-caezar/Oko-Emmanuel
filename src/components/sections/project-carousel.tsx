@@ -19,9 +19,9 @@ const ProjectsCarousel: React.FC = () => {
 
   const projects: ProjectCard[] = [
     { id: 1, image: project1, title: "KoboStack", isMobile: false },
-    { id: 2, image: project2, title: "Aurora Fashion", isMobile: true },
+    { id: 2, image: project2, title: "Aurora Fashion", isMobile: false },
     { id: 3, image: project3, title: "Quicklah", isMobile: false },
-    { id: 4, image: project4, title: "Lumina Labs", isMobile: true },
+    { id: 4, image: project4, title: "Lumina Labs", isMobile: false },
     { id: 5, image: project5, title: "Lumina Labs", isMobile: true },
     { id: 6, image: project6, title: "Lumina Labs", isMobile: false },
   ];

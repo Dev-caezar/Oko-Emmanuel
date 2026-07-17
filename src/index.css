@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+/* 1. Register fonts in Tailwind v4's theme */
+@theme {
+  --font-luminari: "Luminari", fantasy, serif;
+  --font-sans:
+    "Lato", sans-serif; /* Sets Lato as your default Tailwind sans font */
+}
+
+/* 2. Load your local woff2 font file */
+@font-face {
+  font-family: "Luminari";
+  src: url("./assets/fonts/Luminari.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 3. Apply the default font to the body instead of using * */
+body {
+  font-family: var(--font-sans);
+}
+
+/* 4. Hide default cursor */
+html,
+body {
+  cursor: none;
+}
+a,
+button,
+[role="button"] {
+  cursor: none;
+}
