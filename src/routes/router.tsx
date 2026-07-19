@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { HomeLayout } from "../components";
 import Home from "../pages/home";
 import ProjectPage from "../pages/project-page";
+import ServicePage from "../pages/service-page";
+import ProjectDetailsPage from "../pages/project-details";
 
 const routes = [
   {
@@ -15,6 +17,14 @@ const routes = [
       {
         path: "/projects",
         element: <ProjectPage />,
+      },
+      {
+        path: "/project/:title",
+        element: <ProjectDetailsPage />,
+      },
+      {
+        path: "/services",
+        element: <ServicePage />,
       },
     ],
   },

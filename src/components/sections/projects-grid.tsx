@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import xpress from "../../assets/public/xpress.png";
 import najia from "../../assets/public/najia-thread.png";
@@ -59,12 +60,17 @@ const projects: Project[] = [
 ];
 
 const ProjectGrid: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="w-full bg-white py-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
         {projects.map((project) => (
           <div
             key={project.id}
+            onClick={() =>
+              navigate(`/project/${encodeURIComponent(project.title)}`)
+            }
             className="group relative bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8 items-center cursor-pointer"
           >
             <div
