@@ -6,6 +6,8 @@ import UserPersonas from "./user-personas";
 import LowFidelityWires from "./low-fidelity-wires";
 import SolutionsList from "./solution-list";
 import MeasurableKPIs from "./measurable-kpis";
+import UIDesignShowcase from "./ui-design-showcase";
+import MoreProjects from "./more-project";
 
 interface DesignProjectViewProps {
   data: DesignProjectData;
@@ -31,25 +33,8 @@ const DesignProjectView: React.FC<DesignProjectViewProps> = ({ data }) => {
         <SolutionsList data={data.sections.designDecisions} />
         <MeasurableKPIs data={data.sections.measurableKPIs} />
 
-        {/* Section: Final UI Deliverables */}
-        <section className="max-w-7xl w-full mx-auto px-6 md:px-12 border-t border-gray-100 pt-12">
-          <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3 block">
-            04 / Visual Interface
-          </span>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">
-            {data.sections.uiDesign.headline}
-          </h2>
-          <div className="w-full rounded-2xl bg-[#F5F5F5] p-6 md:p-12 flex flex-col items-center gap-6 justify-center">
-            {data.sections.uiDesign.images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt="Final UI Presentation Mockups"
-                className="max-w-full h-auto object-contain"
-              />
-            ))}
-          </div>
-        </section>
+        <UIDesignShowcase data={data.sections.uiDesign} />
+        <MoreProjects currentProjectId={data.id} />
       </div>
     </article>
   );

@@ -6,19 +6,40 @@ import nexaImage from "../assets/public/nexa-bg.png";
 import nexawire1 from "../assets/public/nexa-wire1.png";
 import nexawire2 from "../assets/public/nexa-wire2.png";
 import nexawire3 from "../assets/public/nexa-wire3.png";
+import nexaMob1 from "../assets/public/nexa-mob1.png";
+import nexaMob2 from "../assets/public/nexa-mob2.png";
+import nexaMob3 from "../assets/public/nexa-mob3.png";
+import nexaMob4 from "../assets/public/nexa-mob4.png";
+import nexaMob5 from "../assets/public/nexa-mob5.png";
+import nexaMob6 from "../assets/public/nexa-mob6.png";
+import nexaMob7 from "../assets/public/nexa-mob7.png";
+import nexaMob8 from "../assets/public/nexa-mob8.png";
+import nexaMob9 from "../assets/public/nexa-mob9.png";
+import nexaMob10 from "../assets/public/nexa-mob-10.png";
+import nexaMob11 from "../assets/public/nexa-mob-11.png";
+import xpress from "../assets/public/xpress.png";
+import najia from "../assets/public/najia-thread.png";
+import kyc from "../assets/public/kyc.png";
+import nexa from "../assets/public/nexa.png";
 
 export interface BaseProjectData {
   id: string;
   title: string;
-  subtitle: string;
-  projectType: "design" | "research";
-  heroImage: string;
-  meta: {
+  subtitle?: string;
+  projectType?: "design" | "research";
+  heroImage?: string;
+  meta?: {
     role: string;
     timeline: string;
     sector: string;
     tools: string[];
   };
+  // Added optional fields to make projectsData match BaseProjectData
+  description?: string;
+  tags?: string[];
+  image?: string;
+  color?: string;
+  deviceType?: "mobile" | "desktop";
 }
 
 export interface KPIRow {
@@ -29,6 +50,14 @@ export interface KPIRow {
 
 export interface DesignProjectData extends BaseProjectData {
   projectType: "design";
+  subtitle: string;
+  heroImage: string;
+  meta: {
+    role: string;
+    timeline: string;
+    sector: string;
+    tools: string[];
+  };
   sections: {
     theProblem: {
       headline: string;
@@ -94,6 +123,14 @@ export interface DesignProjectData extends BaseProjectData {
 
 export interface ResearchProjectData extends BaseProjectData {
   projectType: "research";
+  subtitle: string;
+  heroImage: string;
+  meta: {
+    role: string;
+    timeline: string;
+    sector: string;
+    tools: string[];
+  };
   sections: {
     overview: {
       headline: string;
@@ -120,6 +157,49 @@ export interface ResearchProjectData extends BaseProjectData {
 }
 
 export type ProjectDetailData = DesignProjectData | ResearchProjectData;
+
+export const projectsData: BaseProjectData[] = [
+  {
+    id: "Xpress-mart",
+    title: "Xpress-mart",
+    description:
+      "An e-commerce product that provides users with a top-notch shopping experience — from discovery through checkout.",
+    tags: ["E-commerce", "UI/UX Design"],
+    image: xpress,
+    color: "hover:bg-[#FFF0F0]",
+    deviceType: "mobile",
+  },
+  {
+    id: "Naija-Thread",
+    title: "Naija-Thread",
+    description:
+      "A Nigerian fashion marketplace, designed to end — down and seller issues, provide standard sizes, search and discovery, and a reward system built to keep both sides coming back.",
+    tags: ["E-commerce", "UI/UX Design"],
+    image: najia,
+    color: "hover:bg-[#EAF7EA]",
+    deviceType: "desktop",
+  },
+  {
+    id: "Nexa",
+    title: "Nexa",
+    description:
+      "A concept fintech platform redesigned to solve a problem where users were quitting mid-transaction. Includes research, wireframes, decisions, and measurable targets.",
+    tags: ["Fintech", "UI/UX Design"],
+    image: nexa,
+    color: "hover:bg-[#E8F5E9]",
+    deviceType: "mobile",
+  },
+  {
+    id: "Naija-Thread Case Study",
+    title: "Naija-Thread Case Study",
+    description:
+      "An e-commerce product that provide user with top-notch experience.",
+    tags: ["E-commerce", "UI/UX Design"],
+    image: kyc,
+    color: "hover:bg-[#F3E8FF]",
+    deviceType: "desktop",
+  },
+];
 
 export const projectsDetailDataset: Record<string, ProjectDetailData> = {
   nexa: {
@@ -346,7 +426,19 @@ export const projectsDetailDataset: Record<string, ProjectDetailData> = {
       },
       uiDesign: {
         headline: "The Final Polish",
-        images: ["/assets/projects/nexa-ui-final.png"],
+        images: [
+          nexaMob1,
+          nexaMob2,
+          nexaMob3,
+          nexaMob4,
+          nexaMob5,
+          nexaMob6,
+          nexaMob7,
+          nexaMob8,
+          nexaMob9,
+          nexaMob10,
+          nexaMob11,
+        ],
       },
     },
   },
