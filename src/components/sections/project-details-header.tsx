@@ -1,17 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import type { ProjectDetailData } from "../../data/project-data";
 
 interface ProjectHeaderProps {
-  data: {
-    title: string;
-    subtitle: string;
-    heroImage: string;
-    meta: {
-      role: string;
-      timeline?: string;
-      sector: string;
-    };
-  };
+  data: ProjectDetailData;
 }
 
 const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
@@ -26,10 +18,10 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-6xl md:text-8xl font-semibold tracking-tight text-[#06371B] mb-6">
+          <h1 className="text-6xl md:text-6xl font-semibold tracking-tight text-black mb-6">
             {data.title}
           </h1>
-          <p className="text-base md:text-lg leading-relaxed text-gray-500 font-medium max-w-md">
+          <p className="text-base md:text-md leading-relaxed text-gray-500 font-medium max-w-lg">
             {data.subtitle}
           </p>
         </motion.div>
@@ -57,31 +49,31 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <div className="w-[45%] sm:w-auto min-w-[120px]">
-          <h4 className="text-base font-bold text-[#111111]">{data.title}</h4>
+        <div className="w-[45%] sm:w-auto min-w-30">
+          <h4 className="text-base font-bold text-[#111111]">{data.project}</h4>
           <p className="text-xs font-semibold text-gray-300 mt-1">Project</p>
         </div>
 
-        <div className="w-[45%] sm:w-auto min-w-[120px]">
+        <div className="w-[45%] sm:w-auto min-w-30">
           <h4 className="text-base font-bold text-[#111111]">
             {data.meta.role}
           </h4>
           <p className="text-xs font-semibold text-gray-300 mt-1">Role</p>
         </div>
 
-        <div className="w-[45%] sm:w-auto min-w-[120px]">
+        <div className="w-[45%] sm:w-auto min-w-30">
           <h4 className="text-base font-bold text-[#111111]">
             {data.meta.sector}
           </h4>
           <p className="text-xs font-semibold text-gray-300 mt-1">Industry</p>
         </div>
 
-        <div className="w-[45%] sm:w-auto min-w-[120px]">
+        <div className="w-[45%] sm:w-auto min-w-30">
           <h4 className="text-base font-bold text-[#111111]">Nigeria</h4>
           <p className="text-xs font-semibold text-gray-300 mt-1">Location</p>
         </div>
 
-        <div className="w-[45%] sm:w-auto min-w-[120px]">
+        <div className="w-[45%] sm:w-auto min-w-30">
           <h4 className="text-base font-bold text-[#111111]">2025</h4>
           <p className="text-xs font-semibold text-gray-300 mt-1">Year</p>
         </div>

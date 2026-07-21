@@ -1,113 +1,81 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import { projectsData, type BaseProjectData } from "../../data/project-data";
+import { projectsData } from "../../data/project-data";
 
-interface CardProps {
-  project: BaseProjectData;
-  index: number;
-  totalCards: number;
-}
-
-const ProjectCard: React.FC<CardProps> = ({ project, index, totalCards }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [1, 0.93 - (totalCards - index) * 0.01],
-  );
+const ProjectGrid: React.FC = () => {
+  const navigate = useNavigate();
 
   return (
-    <div
-      ref={containerRef}
-      className="h-screen flex items-center justify-center sticky top-0"
-    >
-      <motion.div
-        style={{
-          scale,
-          top: `calc(12% + ${index * 32}px)`,
-        }}
-        className="w-full max-w-6xl bg-white rounded-[10px] border border-gray-100 p-6 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.03)] grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center origin-top"
-      >
-        {/* Increased columns from 6 to 7 to enlarge the image container */}
-        <div className="md:col-span-7 rounded-2xl bg-[#f5f5f5] aspect-16/10 w-full flex items-center justify-center p-6 md:p-10 overflow-hidden">
-          {project.image && (
-            <img
-              src={project.image}
-              alt={`${project.title} interface mockup`}
-              className={`object-contain pointer-events-none select-none hover:scale-105 transition-transform duration-500 ${
-                project.deviceType === "mobile"
-                  ? "h-[90%] max-h-64 md:max-h-80"
-                  : "w-full h-full"
-              }`}
-            />
-          )}
-        </div>
-
-        {/* Adjusted from 6 to 5 to balance the 12-column grid row */}
-        <div className="md:col-span-5 flex flex-col justify-center items-start h-full py-2">
-          <h3 className="text-3xl md:text-4xl font-bold text-[#111111] mb-4">
-            {project.title}
-          </h3>
-
-          {project.description && (
-            <p className="text-sm md:text-base text-gray-400 font-medium leading-relaxed mb-8 max-w-md">
-              {project.description}
-            </p>
-          )}
-
-          {project.tags && project.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2.5 mb-8">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-4 py-2 bg-gray-50 border border-gray-100 text-gray-500 text-xs font-semibold rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-
-          <button className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-200 hover:border-black hover:bg-black hover:text-white transition-all duration-300 mt-auto">
-            <ArrowUpRight size={20} />
-          </button>
-        </div>
-      </motion.div>
-    </div>
-  );
-};
-
-const Projects: React.FC = () => {
-  return (
-    <section className="w-full bg-[#f9f9f9] px-6 md:px-12 pb-24">
-      <div className="max-w-6xl mx-auto text-center pt-24 pb-8">
-        <span className="text-[11px] font-semibold uppercase tracking-widest text-[#6366F1]">
-          My Projects
-        </span>
-        <h2 className="text-3xl sm:text-4xl md:text-[42px] font-medium tracking-tight text-[#111111] mt-3 leading-[1.2]">
-          Selected Projects
-        </h2>
-      </div>
-
-      <div className="max-w-6xl mx-auto relative flex flex-col items-center">
-        {projectsData.map((project, index) => (
-          <ProjectCard
+    <section className="w-full bg-white py-16 px-6 md:px-12">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {projectsData.map((project) => (
+          <div
             key={project.id}
-            project={project}
-            index={index}
-            totalCards={projectsData.length}
-          />
+            onClick={() =>
+              navigate(
+                `/project/${encodeURIComponent(project.id.toLowerCase())}`,
+              )
+            }
+            className="group relative bg-white rounded-2xl p-6 md:p-8 border border-transparent hover:border-gray-100 shadow-[0_4px_30px_rgba(0,0,0,0.01)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] transition-all duration-300 flex flex-col md:flex-row gap-6 md:gap-8 items-center cursor-pointer"
+          >
+            <div
+              className={`w-full md:w-[45%] aspect-square bg-[#F5F5F5] rounded-xl flex items-center justify-center p-6 md:p-8 overflow-hidden transition-colors duration-300 ${
+                project.color ?? "hover:bg-gray-100"
+              }`}
+            >
+              {project.image && (
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className={`object-contain select-none transition-transform duration-500 group-hover:scale-105 ${
+                    project.deviceType === "mobile"
+                      ? "h-[90%] max-h-55 md:max-h-75"
+                      : "w-full h-200px"
+                  }`}
+                  draggable="false"
+                />
+              )}
+            </div>
+
+            <div className="w-full md:w-[55%] flex flex-col justify-between h-full py-2">
+              <div>
+                <h3 className="text-2xl font-bold tracking-tight text-[#111111] mb-3">
+                  {project.title}
+                </h3>
+                {project.description && (
+                  <p className="text-xs md:text-[13px] leading-relaxed text-gray-400 font-medium mb-6">
+                    {project.description}
+                  </p>
+                )}
+              </div>
+
+              <div className="flex flex-col gap-6 mt-auto">
+                {project.tags && project.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[11px] font-semibold text-gray-500 bg-gray-50 border border-gray-100 px-3 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="flex">
+                  <div className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center bg-white text-gray-600 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-300">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         ))}
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default ProjectGrid;

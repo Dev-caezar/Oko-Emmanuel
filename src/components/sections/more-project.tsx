@@ -99,7 +99,7 @@ const MoreProjects: React.FC<MoreProjectsProps> = ({ currentProjectId }) => {
   if (filteredProjects.length === 0) return null;
 
   return (
-    <section className="w-full bg-[#f9f9f9] px-6 md:px-12 pb-24">
+    <section className="w-full px-6 md:px-12 pb-24">
       <div className="max-w-6xl mx-auto text-center pt-24 pb-8">
         <span className="text-[11px] font-semibold uppercase tracking-widest text-[#6366F1]">
           Checkout more of my works

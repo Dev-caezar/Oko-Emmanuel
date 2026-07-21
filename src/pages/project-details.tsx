@@ -13,19 +13,21 @@ const ProjectDetailsPage: React.FC = () => {
 
   useEffect(() => {
     if (title) {
-      // Decode the URL param (e.g., "Reducing%20KYC" becomes "reducing kyc")
-      const decodedParamTitle = decodeURIComponent(title).toLowerCase();
+      // Decode the URL param (e.g., "naija-thread%20case%20study" -> "naija-thread case study")
+      const decodedParam = decodeURIComponent(title).toLowerCase();
 
-      // Find the project matching its internal dataset .title property
-      const data = Object.values(projectsDetailDataset).find(
-        (proj) => proj.title.toLowerCase() === decodedParamTitle,
-      );
+      // Look up via record key first, fallback to checking internal project id properties
+      const data =
+        projectsDetailDataset[decodedParam] ||
+        Object.values(projectsDetailDataset).find(
+          (proj) => proj.id.toLowerCase() === decodedParam,
+        );
 
       if (data) {
         setProject(data);
       } else {
-        // Redirect back to projects page if no title matches
-        navigate("/projects");
+        // Redirect back to home/projects page if no match found
+        navigate("/");
       }
     }
   }, [title, navigate]);

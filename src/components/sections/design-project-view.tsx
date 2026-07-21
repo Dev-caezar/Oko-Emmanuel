@@ -22,17 +22,13 @@ const DesignProjectView: React.FC<DesignProjectViewProps> = ({ data }) => {
       {/* Main Content Layout Sections */}
       <div className="w-full flex flex-col gap-20">
         <ProjectDemographics data={data.sections.demographics} />
-
-        {/* Section: User Personas Component */}
         <UserPersonas
           headline={data.sections.userPersonas.headline}
           personas={data.sections.userPersonas.personas}
         />
-
         <LowFidelityWires data={data.sections.wireframes} />
         <SolutionsList data={data.sections.designDecisions} />
         <MeasurableKPIs data={data.sections.measurableKPIs} />
-
         <UIDesignShowcase data={data.sections.uiDesign} />
         <MoreProjects currentProjectId={data.id} />
       </div>
