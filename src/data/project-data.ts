@@ -4,7 +4,7 @@ import nexaDemo2 from "../assets/public/nexademo2.jpg";
 import nexaDemo3 from "../assets/public/nexademo3.jpg";
 import quickDemo1 from "../assets/public/quickDemo1.png";
 import quickDemo2 from "../assets/public/quickdemo2.jpg";
-import quickDemo3 from "../assets/public/quickdemo3.jpg";
+import quickDemo3 from "../assets/public/quickDemo3.jpg";
 import nexaImage from "../assets/public/nexa-bg.png";
 import nexawire1 from "../assets/public/nexa-wire1.png";
 import nexawire2 from "../assets/public/nexa-wire2.png";
