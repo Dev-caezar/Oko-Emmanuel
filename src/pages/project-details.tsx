@@ -27,7 +27,7 @@ const ProjectDetailsPage: React.FC = () => {
         setProject(data);
       } else {
         // Redirect back to home/projects page if no match found
-        navigate("/");
+        // navigate("/");
       }
     }
   }, [title, navigate]);

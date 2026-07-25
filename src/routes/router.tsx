@@ -4,6 +4,7 @@ import Home from "../pages/home";
 import ProjectPage from "../pages/project-page";
 import ServicePage from "../pages/service-page";
 import ProjectDetailsPage from "../pages/project-details";
+import ContactPage from "../pages/contact-page";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
       {
         path: "/services",
         element: <ServicePage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

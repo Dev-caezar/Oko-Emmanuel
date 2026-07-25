@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 interface UIDesignShowcaseProps {
   data: {
@@ -8,51 +9,47 @@ interface UIDesignShowcaseProps {
 }
 
 const UIDesignShowcase: React.FC<UIDesignShowcaseProps> = ({ data }) => {
-  // Triple the array to ensure there is always enough content to fill screen width for seamless looping
-  const trackImages = [...data.images, ...data.images, ...data.images];
+  // Duplicating array for infinite marquee track
+  const trackImages = [...data.images, ...data.images];
 
   return (
-    <section className="max-w-7xl w-full mx-auto px-6 md:px-12 border-t border-gray-100 pt-12 pb-16">
-      {/* Dynamic Keyframe Injection */}
-      <style>{`
-        @keyframes inlineMarquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        .animate-inline-marquee {
-          display: flex;
-          width: max-content;
-          animation: inlineMarquee 30s linear infinite;
-        }
-        .animate-inline-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
-
+    <section className="max-w-7xl w-full mx-auto px-6 md:px-12 border-t border-gray-100 pt-12 pb-16 overflow-hidden text-center">
       <span className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-3 block">
-        04 / Visual Interface
+        Outcome
       </span>
-      <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">
+      <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 mb-8">
         {data.headline}
       </h2>
 
       {/* Overflow Wrapper */}
-      <div className="w-full py-12 px-6 overflow-hidden relative">
+      <div className="relative w-full overflow-hidden py-4">
+        {/* Edge Gradient Overlay */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
+
         {/* Infinite Moving Row Track */}
-        <div className="animate-inline-marquee gap-6">
+        <motion.div
+          className="flex flex-row items-center gap-6 w-max"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            ease: "linear",
+            duration: Math.max(15, data.images.length * 4),
+            repeat: Infinity,
+          }}
+        >
           {trackImages.map((img, index) => (
             <div
               key={index}
-              className="shrink-0 h-87.5 md:h-112.5 w-auto flex items-center justify-center"
+              className="shrink-0 h-52 sm:h-64 md:h-72 w-auto flex items-center justify-center"
             >
               <img
                 src={img}
-                alt={`Final UI Presentation Mockup ${index + 1}`}
-                className="h-full w-auto object-contain rounded-lg select-none pointer-events-none"
+                alt={`Final UI Presentation Mockup ${(index % data.images.length) + 1}`}
+                className="h-full w-auto object-contain rounded-xl select-none pointer-events-none"
               />
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

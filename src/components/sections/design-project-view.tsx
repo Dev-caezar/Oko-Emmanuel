@@ -16,10 +16,7 @@ interface DesignProjectViewProps {
 const DesignProjectView: React.FC<DesignProjectViewProps> = ({ data }) => {
   return (
     <article className="w-full bg-white text-[#111111] pb-24">
-      {/* Hero Header Section */}
       <ProjectDetailsHeader data={data} />
-
-      {/* Main Content Layout Sections */}
       <div className="w-full flex flex-col gap-20">
         <ProjectDemographics data={data.sections.demographics} />
         <UserPersonas

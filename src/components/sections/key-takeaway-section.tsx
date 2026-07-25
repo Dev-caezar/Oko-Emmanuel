@@ -62,7 +62,7 @@ export const KeyTakeawaySection: React.FC<KeyTakeawaySectionProps> = ({
               {data.principles.map((principle, index) => (
                 <div key={index} className="flex items-center gap-4">
                   {/* Purple Accent Line */}
-                  <div className="w-1.5 h-7 bg-[#6D28D9] rounded-full flex-shrink-0" />
+                  <div className="w-1.5 h-7 bg-[#6D28D9] rounded-full shrink-0" />
 
                   {/* Principle Text */}
                   <p className="text-sm md:text-base font-bold text-gray-900 leading-snug">

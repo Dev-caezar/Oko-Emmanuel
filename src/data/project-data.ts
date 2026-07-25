@@ -2,10 +2,16 @@ import nexaHero from "../assets/public/nexaHero.png";
 import nexaDemo1 from "../assets/public/nexademo1.jpg";
 import nexaDemo2 from "../assets/public/nexademo2.jpg";
 import nexaDemo3 from "../assets/public/nexademo3.jpg";
+import quickDemo1 from "../assets/public/quickdemo1.png";
+import quickDemo2 from "../assets/public/quickdemo2.jpg";
+import quickDemo3 from "../assets/public/quickdemo3.jpg";
 import nexaImage from "../assets/public/nexa-bg.png";
 import nexawire1 from "../assets/public/nexa-wire1.png";
 import nexawire2 from "../assets/public/nexa-wire2.png";
 import nexawire3 from "../assets/public/nexa-wire3.png";
+import quickwire1 from "../assets/public/quickWire1.png";
+import quickwire2 from "../assets/public/quickWire2.png";
+import quickwire3 from "../assets/public/quickWire3.png";
 import nexaMob1 from "../assets/public/nexa-mob1.png";
 import nexaMob2 from "../assets/public/nexa-mob2.png";
 import nexaMob3 from "../assets/public/nexa-mob3.png";
@@ -28,6 +34,34 @@ import principle2 from "../assets/public/principle2.png";
 import principle3 from "../assets/public/principle3.png";
 import principle4 from "../assets/public/principle4.png";
 import principle5 from "../assets/public/principle5.png";
+import quickshopHero from "../assets/public/quickshop-hero.png";
+import NaijaHero from "../assets/public/najia-design.png";
+import Quickshop1 from "../assets/public/quick1.png";
+import Quickshop2 from "../assets/public/quick2.png";
+import Quickshop3 from "../assets/public/quick3.png";
+import Quickshop4 from "../assets/public/quick4.png";
+import Quickshop5 from "../assets/public/quick5.png";
+import Quickshop6 from "../assets/public/quick6.png";
+import Quickshop7 from "../assets/public/quick7.png";
+import Quickshop8 from "../assets/public/quick8.png";
+import Quickshop9 from "../assets/public/quick9.png";
+import QuickShopImage from "../assets/public/business.png";
+import fashionWire1 from "../assets/public/fashion-wire1.png";
+import fashionWire2 from "../assets/public/fashion-wire2.png";
+import fashionWire3 from "../assets/public/fashion-wire3.png";
+import fashion1 from "../assets/public/fashion1.png";
+import fashion2 from "../assets/public/fashion2.png";
+import fashion3 from "../assets/public/fashion3.png";
+import fashion4 from "../assets/public/fashion4.png";
+import fashion5 from "../assets/public/fashion5.png";
+import fashion6 from "../assets/public/fashion6.png";
+import fashion7 from "../assets/public/fashion7.png";
+import fashion8 from "../assets/public/fashion8.png";
+import fashion9 from "../assets/public/fashion9.png";
+import fashion10 from "../assets/public/fashion10.png";
+import fashion11 from "../assets/public/fashion11.png";
+import fashion12 from "../assets/public/fashion12.png";
+import fashion13 from "../assets/public/fashion13.png";
 
 export interface BaseProjectData {
   id: string;
@@ -634,6 +668,533 @@ const nexaDetail: DesignProjectData = {
         nexaMob9,
         nexaMob10,
         nexaMob11,
+      ],
+    },
+  },
+};
+const quickShopDetails: DesignProjectData = {
+  id: "Xpress-mart",
+  title: "Xpress-mart",
+  project: "QuickShop",
+  subtitle:
+    "The fastest way to shop for products online with or without creating an account. Quick shop allows easy and fast quest checkout unlike most e-commerce application where users will be required to create an account before placing order.",
+  projectType: "design",
+  heroImage: quickshopHero,
+  meta: {
+    role: "Product Designer",
+    timeline: "3 Weeks",
+    sector: "Fintech",
+    tools: ["Figma", "FigJam", "Whimsical"],
+  },
+  sections: {
+    theProblem: {
+      headline: "Why are high-intent users quitting mid-transaction?",
+      description:
+        "Deep analytics showed an alarming drop-off rate during the final checkout split-payment phase. Users found the interface ambiguous and lacked clear verification feedback.",
+      images: [
+        "/assets/projects/nexa-problem-1.png",
+        "/assets/projects/nexa-problem-2.png",
+      ],
+    },
+    demographics: {
+      tagline: "Demographics",
+      title: "Who we designed for",
+      businessCard: {
+        bgImage: quickDemo1,
+        tag: "Quickshop for business",
+        heading: "How Quick Shop can help scale up your business",
+        features: [
+          {
+            title: "Give small designers and tailors real distribution.",
+            subTitle: "→ Faster operations",
+            desc: "Most independent fashion businesses have great products and zero reach. A marketplace that handles discovery, payments, and logistics lets them focus on making, not marketing.",
+          },
+          {
+            title: "Build trust into the transaction.",
+            subTitle: "→ Higher profit margins",
+            desc: "Escrow-protected payments, clear order tracking, and simple returns solve the real reason people hesitate to buy from unfamiliar sellers online — fear of getting scammed.",
+          },
+          {
+            title:
+              "Turn local identity into a selling point, not a limitation.",
+            subTitle: "→ Global market expansion",
+            desc: "Categorizing and merchandising around things like Ankara, Agbada, or Aso-oke instead of forcing everything into generic Western categories helps businesses reach the exact customers who are already looking for that.",
+          },
+        ],
+      },
+      gridCards: [
+        {
+          tag: "Turn local identity into a selling point, not a limitation.",
+          bgImage: quickDemo2,
+          heading: "We have a lot to offer you",
+          desc: "Businesses can receive and hold funds in multiple currencies, making it easier to serve customers worldwide, enter new markets, and operate without currency barriers.",
+        },
+        {
+          bgImage: quickDemo3,
+          tag: "Nexa for E-commerce",
+          heading: "Faster Payouts to Sellers",
+          desc: "E-commerce merchants get paid instantly or same-day through Nexa, improving their cashflow and enabling them to restock quicker — which leads to more sales.",
+        },
+      ],
+    },
+    bgImage: nexaImage,
+    userPersonas: {
+      headline: "Research discovery on users pain point",
+      personas: [
+        {
+          name: "Pascal",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I've been scammed twice buying clothes from Instagram sellers. I don't trust random accounts anymore.",
+          frustrations: [
+            "Onboarding flow is very tedious and long",
+            "Too many forms to fill",
+          ],
+        },
+        {
+          name: "Rita Okam",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I lose track of orders in my DMs. I don't always know who's paid and who hasn't.",
+          frustrations: [
+            "Hidden transaction milestones",
+            "Fees hidden until the final step",
+          ],
+        },
+        {
+          name: "Ngozi",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I never know if the fabric will actually look like the photo until it arrives.",
+          frustrations: [
+            "Sending money requires multiple screens",
+            "Unclear structural options",
+          ],
+        },
+        {
+          name: "Emeka",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "Customers haggle every time because I don't have a real storefront to point them to",
+          frustrations: [
+            "Slow and error-prone manual searches",
+            "Strict reliance on legacy contact identifiers",
+          ],
+        },
+        {
+          name: "Blessing",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?w=150&auto=format&fit=crop&q=80",
+          quote: "There's no delivery tracking. I just wait and hope.",
+          frustrations: [
+            "Delayed transaction settlement timelines",
+            "Lack of real-time multi-day delivery feedback",
+          ],
+        },
+        {
+          name: "Sarah Proctor",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I get orders from all over the country but I never know the right delivery cost until after I've already agreed a price with the customer.",
+          frustrations: [
+            "Little or no structural context on completion status",
+            "Missing operational response states for requests",
+          ],
+        },
+      ],
+    },
+    designDecisions: {
+      headline: "Solutions taken to fix problems",
+      solutions: [
+        {
+          name: "Chidinmma",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Buyer protection by default.",
+          description:
+            "Funds are held in escrow until delivery is confirmed, so buyers aren't trusting a stranger with a bank transfer upfront.",
+          outcome: "Reduced Order dispute rate",
+        },
+        {
+          name: "Tunde",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "One dashboard, not five DM threads.",
+          description:
+            "A seller dashboard consolidates every order, payment status, and message in one place instead of scattered chats.",
+          outcome:
+            "Missed/unfulfilled orders reduced, faster seller response time",
+        },
+        {
+          name: "Ngozi",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Photos and details buyers can actually trust.",
+          description:
+            "Multi-angle photos, fabric and sizing details, and buyer reviews replace a single flattering product shot.",
+          outcome: "Return/complaint rate on received items reduced",
+        },
+        {
+          name: "Emeka",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "A real storefront, not just a bio link.",
+          description:
+            "Every seller gets a branded store page, so haggling gets replaced by a page that looks worth the listed price.",
+          outcome: "Avg. time to first sale (new seller) 21 days → 7 days",
+        },
+        {
+          name: "Blessing",
+          role: "Buyer",
+          image:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Visible status, every step.",
+          description:
+            "Order tracking shows exactly where a package is, instead of leaving buyers to message and ask.",
+          outcome: "Delivery-related support tickets reduced",
+        },
+        {
+          name: "Halima",
+          role: "Seller",
+          image:
+            "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Delivery cost calculated upfront, before checkout.",
+          description:
+            "Shipping cost is calculated automatically based on buyer location and item weight and shown before the seller confirms a sale — no more guessing, no more absorbing a loss because a price was agreed before shipping was factored in.",
+          outcome:
+            "Seller-reported pricing disputes reduced, faster order confirmation time",
+        },
+      ],
+    },
+    wireframes: {
+      images: [quickwire1, quickwire2, quickwire3],
+    },
+    measurableKPIs: {
+      headline: "Measurable KPIs",
+      subHeadline:
+        "This is a concept project — the numbers below are the targets the design was built toward, not measured results.",
+      kpis: [
+        {
+          metric: "Repeat purchase rate",
+          current: "~15–20%",
+          target: "30%",
+        },
+        {
+          metric: "Seller Onboarding Completion",
+          current: "~50–60%",
+          target: "75%",
+        },
+        {
+          metric: "Order dispute rate",
+          current: "~10–15%",
+          target: "5%",
+        },
+        {
+          metric: "Avg. time to first sale (new seller)",
+          current: "14–21 days",
+          target: "7 days",
+        },
+        {
+          metric: "Return/complaint rate",
+          current: "~15–20%",
+          target: "8%",
+        },
+        {
+          metric: "Delivery-related support tickets",
+          current: "-",
+          target: "Low",
+        },
+      ],
+    },
+    uiDesign: {
+      headline: "The Final Polish",
+      images: [
+        Quickshop1,
+        Quickshop2,
+        Quickshop3,
+        Quickshop4,
+        Quickshop5,
+        Quickshop6,
+        Quickshop7,
+        Quickshop8,
+        Quickshop9,
+      ],
+    },
+  },
+};
+const naijaThreadFashionDetail: DesignProjectData = {
+  id: "Naija-Thread",
+  title: "Naija-Thread",
+  project: "Naija-Thread",
+  subtitle:
+    "NaijaThread is a fashion marketplace that connects Nigerian buyers with independent fashion sellers — from Ankara prints to made-to-order Agbada — with escrow-protected payments on every order.",
+  projectType: "design",
+  heroImage: NaijaHero,
+  meta: {
+    role: "Product Designer",
+    timeline: "3 Weeks",
+    sector: "Fintech",
+    tools: ["Figma", "FigJam", "Whimsical"],
+  },
+  sections: {
+    theProblem: {
+      headline: "Why are high-intent users quitting mid-transaction?",
+      description:
+        "Deep analytics showed an alarming drop-off rate during the final checkout split-payment phase. Users found the interface ambiguous and lacked clear verification feedback.",
+      images: [
+        "/assets/projects/nexa-problem-1.png",
+        "/assets/projects/nexa-problem-2.png",
+      ],
+    },
+    demographics: {
+      tagline: "Demographics",
+      title: "Who we designed for",
+      businessCard: {
+        bgImage: QuickShopImage,
+        tag: "NaijaThread for business",
+        heading: "How NaijaThread can help scale up your business",
+        features: [
+          {
+            title: "Beyond your instagram followers",
+            subTitle: "",
+            desc: "Sellers currently limited to their own DM followers and word-of-mouth get access to buyers across Nigeria who are actively searching, not just scrolling past a post.",
+          },
+          {
+            title: "One dashboard → Less time managing, more time selling",
+            subTitle: "",
+            desc: "Every order, payment, and buyer message lives in one place instead of scattered across WhatsApp and Instagram DMs — less time spent tracking who's paid, more time spent sourcing and making sales.",
+          },
+          {
+            title: "Real storefront → Prices that don't get haggled",
+            subTitle: "",
+            desc: "A branded store page replaces a bio link, giving sellers the same credibility as an established brand — so customers see value instead of assuming there's room to negotiate.",
+          },
+        ],
+      },
+      gridCards: [
+        {
+          tag: "NaijaThread for buyers",
+          bgImage: quickDemo2,
+          heading: "Verified sellers, real photos → Buy with confidence",
+          desc: "Multi-angle photos, fabric details, and buyer reviews mean no more guessing whether what arrives will match what was posted.",
+        },
+        {
+          tag: "NaijaThread for Payment",
+          bgImage: quickDemo3,
+          heading: "Escrow-protected payments → Fewer disputes, more trust",
+          desc: "Funds are held securely until the buyer confirms delivery, protecting sellers from chargebacks and buyers from scams — both sides trust the transaction instead of just trusting each other.",
+        },
+      ],
+    },
+    bgImage: nexaImage,
+    userPersonas: {
+      headline: "Research discovery on users pain point",
+      personas: [
+        {
+          name: "Mark",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "Its difficult to find genuine Nigerian wears due to mass-produced imitations.",
+          frustrations: [
+            "Its difficult to find genuine Nigerian wears due to mass-produced imitations.",
+          ],
+        },
+        {
+          name: "Scott",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "Browsing thousands of products can feel overwhelming, especially for weddings, cultural events, or formal occasions.",
+          frustrations: [
+            "Browsing thousands of products can feel overwhelming, especially for weddings, cultural events, or formal occasions.",
+          ],
+        },
+        {
+          name: "Grace",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "As an American i find it difficult to convert sizes when i want to buy African wears",
+          frustrations: [
+            "As an American i find it difficult to convert sizes when i want to buy African wears",
+          ],
+        },
+        {
+          name: "Jane",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I never know if the fabric will actually look like the photo until it arrives.",
+          frustrations: [
+            "I never know if the fabric will actually look like the photo until it arrives.",
+          ],
+        },
+        {
+          name: "Jake",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I don't know the difference between Ankara, Aso Oke, Adire, lace, or Senator styles.",
+          frustrations: [
+            "I don't know the difference between Ankara, Aso Oke, Adire, lace, or Senator styles.",
+          ],
+        },
+        {
+          name: "Kelly",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+          quote:
+            "I find it difficult to know which accessories or complementary pieces match a selected item.",
+          frustrations: [
+            "I find it difficult to know which accessories or complementary pieces match a selected item.",
+          ],
+        },
+      ],
+    },
+    designDecisions: {
+      headline: "Solutions taken to fix problems",
+      solutions: [
+        {
+          name: "Mark",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Verified designer marketplace",
+          description:
+            "Every designer and brand is verified with an 'Authentic Nigerian Brand' badge. Include designer stories, production process, craftsmanship highlights, and certificates of authenticity.",
+          outcome: "Increase customer trust by 35%, Boost first time purchase",
+        },
+        {
+          name: "Peter",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Occasion-Based Discovery",
+          description:
+            'Curate collections such as "Traditional Weddings," "Office Wear," "Sunday Service," "Luxury Events," and "Casual Weekend." Use AI-powered recommendations based on browsing behavior and preferences.',
+          outcome: "Order dispute rate 18% → 5%",
+        },
+        {
+          name: "Grace",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Size recommendation",
+          description:
+            "Recommend the best size based on body measurements, previous purchases, regional sizing standards, and garment fit. Include visual fit guidance and size confidence indicators.",
+          outcome:
+            "Reduce return rates due to sizing & increase purchase confidence",
+        },
+        {
+          name: "Kwamme",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Transparent shipping experience",
+          description:
+            "Show estimated delivery dates, shipping costs, duties, taxes, courier tracking, and warehouse availability before checkout. Offer express and economy options.",
+          outcome: "Reduce checkout abandonment by 20%",
+        },
+        {
+          name: "Jake",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Detailed description",
+          description:
+            "Each product includes fabric details, care instructions, cultural background, styling tips, and suggested occasions, supported by educational content and videos.",
+          outcome: "Increase average order value by 25%",
+        },
+        {
+          name: "Kelly",
+          role: "",
+          image:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
+          problemTitle: "Complete the Look Experience",
+          description:
+            "Recommend matching shoes, bags, jewelry, headwear, and accessories. Allow users to purchase the full outfit with one click and preview complete looks.",
+          outcome: "Increase product discovery by 30%",
+        },
+      ],
+    },
+    wireframes: {
+      images: [fashionWire1, fashionWire2, fashionWire3],
+    },
+    measurableKPIs: {
+      headline: "Measurable KPIs",
+      subHeadline:
+        "This is a concept project — the numbers below are the targets the design was built toward, not measured results.",
+      kpis: [
+        {
+          metric: "Repeat purchase rate",
+          current: "~15–20%",
+          target: "40%",
+        },
+        {
+          metric: "Seller Onboarding Completion",
+          current: "~50–60%",
+          target: "90%",
+        },
+        {
+          metric: "Order dispute rate",
+          current: "~10–15%",
+          target: "3%",
+        },
+        {
+          metric: "Avg. time to first sale (new seller)",
+          current: "14–21 days",
+          target: "3 days",
+        },
+        {
+          metric: "Return/complaint rate",
+          current: "~15–20%",
+          target: "5%",
+        },
+        {
+          metric: "Delivery-related support tickets",
+          current: "-",
+          target: "Low",
+        },
+      ],
+    },
+    uiDesign: {
+      headline: "The Final Polish",
+      images: [
+        fashion1,
+        fashion2,
+        fashion3,
+        fashion4,
+        fashion5,
+        fashion6,
+        fashion7,
+        fashion8,
+        fashion9,
+        fashion10,
+        fashion11,
+        fashion12,
+        fashion13,
       ],
     },
   },
@@ -1330,5 +1891,7 @@ const naijaThreadDetail: ResearchProjectData = {
 // 3. Map keys uniformly to safe lowercased strings matching parameters from route handlers
 export const projectsDetailDataset: Record<string, ProjectDetailData> = {
   nexa: nexaDetail,
+  quickshop: quickShopDetails,
+  naijaThreadFashionDetail,
   "naija-thread-case-study": naijaThreadDetail,
 };

@@ -85,7 +85,7 @@ export const JourneyMapSection: React.FC<JourneyMapSectionProps> = ({
         )}
 
         <div className="relative pt-8 pb-12 overflow-x-auto">
-          <div className="min-w-[700px] relative px-6">
+          <div className="min-w-175 relative px-6">
             {/* Emotions Label on the left */}
             <span className="absolute left-0 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-900 z-10">
               Emotions
@@ -132,7 +132,7 @@ export const JourneyMapSection: React.FC<JourneyMapSectionProps> = ({
                     className="flex flex-col items-center text-center space-y-4"
                   >
                     {/* Top Step Label */}
-                    <div className="flex flex-col items-center space-y-1 min-h-[48px]">
+                    <div className="flex flex-col items-center space-y-1 min-h-12">
                       <span className="text-xs font-semibold text-gray-400">
                         {step.stepNumber}
                       </span>
