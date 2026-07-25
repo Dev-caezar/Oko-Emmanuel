@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import type { Variants } from "framer-motion";
-import profileImg from "../../assets/public/profile.png"; // Replace with your profile photo path
+import profileImg from "../../assets/public/oko-emmanuel.png"; // Replace with your profile photo path
 
 interface CounterProps {
   value: number;
