@@ -419,8 +419,8 @@ export const projectsData: BaseProjectData[] = [
     deviceType: "mobile",
   },
   {
-    id: "Naija-Thread Case Study",
-    title: "Naija-Thread Case Study",
+    id: "Reducing KYC drop-off in the fintech industry",
+    title: "Reducing KYC drop-off in the fintech industry",
     description:
       "An e-commerce product that provide user with top-notch experience.",
     tags: ["E-commerce", "UI/UX Design"],
@@ -1202,7 +1202,7 @@ const naijaThreadFashionDetail: DesignProjectData = {
 
 // 2. Naija Thread research project detail dataset (completed)
 const naijaThreadDetail: ResearchProjectData = {
-  id: "Naija-Thread Case Study",
+  id: "Reducing KYC drop-off in the fintech industry",
   title: "Reducing KYC Drop-Off in African Fintech Apps",
   project: "User Research",
   subtitle:

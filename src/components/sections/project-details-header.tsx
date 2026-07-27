@@ -36,9 +36,10 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
         className="space-y-16"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* Left Text Column */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-7 flex flex-col justify-center space-y-6"
+            className="md:col-span-6 flex flex-col justify-center space-y-6"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-neutral-900 leading-[1.1]">
               {data.title}
@@ -48,22 +49,24 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             </p>
           </motion.div>
 
+          {/* Right Image Column (Expanded Size) */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-5 flex justify-center md:justify-end"
+            className="md:col-span-6 flex justify-center md:justify-end"
           >
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-linear-to-r from-purple-100 to-blue-100 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+            <div className="relative group w-full flex justify-center md:justify-end">
+              <div className="absolute -inset-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
               <img
                 src={data.heroImage}
                 alt={`${data.title} product preview`}
-                className="relative w-full max-w-xs md:max-w-sm h-auto object-contain select-none drop-shadow-md"
+                className="relative w-full max-w-md md:max-w-lg lg:max-w-xl h-auto object-contain select-none drop-shadow-md"
                 draggable="false"
               />
             </div>
           </motion.div>
         </div>
 
+        {/* Project Meta Info Footer */}
         <motion.div
           variants={itemVariants}
           className="pt-8 border-t border-neutral-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6"

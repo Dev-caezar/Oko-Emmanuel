@@ -28,7 +28,6 @@ const Counter: React.FC<CounterProps> = ({ value, duration = 1.2 }) => {
 
     const counter = setInterval(() => {
       currentFrame++;
-      // Smooth ease-out progress calculation
       const progress = currentFrame / totalFrames;
       const easeOutQuad = progress * (2 - progress);
 
@@ -48,7 +47,6 @@ const Counter: React.FC<CounterProps> = ({ value, duration = 1.2 }) => {
 };
 
 const About: React.FC = () => {
-  // Smooth slide and fade variants for scroll animation
   const fadeUpVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -72,7 +70,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-12 flex items-center justify-center overflow-hidden">
+    <section className="w-full bg-white py-20 px-6 md:px-12 flex items-center justify-center overflow-hidden">
       <motion.div
         className="max-w-6xl w-full"
         variants={containerVariants}
@@ -93,77 +91,77 @@ const About: React.FC = () => {
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
-          {/* Left Column: Bio Paragraph & Numbers */}
-          <div className="lg:col-span-7 flex flex-col justify-around h-full">
+          {/* Left Column: Bio Paragraph & Stats */}
+          <div className="lg:col-span-7 flex flex-col justify-between h-full">
             {/* Bio Text */}
             <motion.p
               variants={fadeUpVariants}
-              className="text-sm md:text-[16px] text-gray-400 font-medium leading-[1.7] max-w-125 mb-16"
+              className="text-base md:text-lg text-gray-500 font-normal leading-relaxed max-w-xl mb-12"
             >
-              I design the screens people almost quit on. Based in Port
-              Harcourt, I work across fintech and e-commerce, focused on the
-              moments where trust is fragile — onboarding, KYC, checkout — and
-              one confusing screen costs a company real users. I run Lumen
+              I design the screens people almost quit on. Focused on the moments
+              where trust is fragile — onboarding, KYC, checkout — and one
+              confusing screen costs a company real users. I run Lumen
               Technologies, a studio built around the same idea.
             </motion.p>
 
             {/* Stats Counter Row */}
             <motion.div
               variants={fadeUpVariants}
-              className="grid grid-cols-3 gap-4"
+              className="grid grid-cols-3 gap-4 border-t border-gray-100 pt-8"
             >
               {/* Stat 1 */}
               <div>
-                <span className="block text-4xl md:text-5xl font-bold text-[#111111] leading-none tracking-tight">
+                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={20} />
-                  <span className="text-gray-300 font-normal text-2xl md:text-3xl ml-0.5">
+                  <span className="text-gray-300 font-normal text-xl md:text-2xl ml-0.5">
                     +
                   </span>
                 </span>
-                <span className="block text-[11px] font-medium text-gray-400 mt-4 leading-normal">
-                  Project completed
+                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
+                  Projects completed
                 </span>
               </div>
 
               {/* Stat 2 */}
               <div>
-                <span className="block text-4xl md:text-5xl font-bold text-[#111111] leading-none tracking-tight">
+                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={8} />
                 </span>
-                <span className="block text-[11px] font-medium text-gray-400 mt-4 leading-normal">
+                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
                   Clients Worldwide
                 </span>
               </div>
 
               {/* Stat 3 */}
               <div>
-                <span className="block text-4xl md:text-5xl font-bold text-[#111111] leading-none tracking-tight">
+                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={4} />
-                  <span className="text-gray-300 font-normal text-2xl md:text-3xl ml-0.5">
+                  <span className="text-gray-300 font-normal text-xl md:text-2xl ml-0.5">
                     +
                   </span>
                   <span className="text-xs md:text-sm font-medium text-gray-400 ml-1">
                     years
                   </span>
                 </span>
-                <span className="block text-[11px] font-medium text-gray-400 mt-4 leading-normal">
+                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
                   Experience
                 </span>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Tilted Profile Frame */}
+          {/* Right Column: Tilted Profile Portrait Card */}
           <motion.div
             variants={fadeUpVariants}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
             <motion.div
-              className="relative w-full max-w-full md:w-145.5 md:h-100.75 rounded-3xl bg-white border border-gray-100/50 flex items-center justify-center"
-              style={{ rotate: -5.49 }}
+              /* Fixed explicit height container */
+              className="relative w-full max-w-sm h-[360px] md:h-[420px] rounded-3xl overflow-hidden bg-gray-100 border border-gray-100 shadow-sm"
+              style={{ rotate: -3 }}
               whileHover={{
                 rotate: 0,
-                scale: 1.03,
+                scale: 1.02,
                 y: -6,
                 transition: { type: "spring", stiffness: 350, damping: 20 },
               }}
@@ -171,7 +169,7 @@ const About: React.FC = () => {
               <img
                 src={profileImg}
                 alt="Oko E. profile portrait"
-                className="w-full h-full object-cover rounded-2xl bg-gray-50 pointer-events-none select-none"
+                className="w-full h-full object-cover pointer-events-none select-none"
               />
             </motion.div>
           </motion.div>
