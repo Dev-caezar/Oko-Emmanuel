@@ -35,63 +35,101 @@ export const JourneyMapSection: React.FC<JourneyMapSectionProps> = ({
       case "relieved":
         return {
           bg: "bg-emerald-500",
-          ring: "ring-emerald-200",
+          ring: "ring-emerald-100",
           icon: <Smile className="w-5 h-5 text-white" />,
         };
       case "hopeful":
         return {
           bg: "bg-lime-500",
-          ring: "ring-lime-200",
+          ring: "ring-lime-100",
           icon: <Smile className="w-5 h-5 text-white" />,
         };
       case "comfortable":
         return {
           bg: "bg-amber-400",
-          ring: "ring-amber-200",
+          ring: "ring-amber-100",
           icon: <Smile className="w-5 h-5 text-white" />,
         };
       case "unsure":
         return {
           bg: "bg-orange-500",
-          ring: "ring-orange-200",
+          ring: "ring-orange-100",
           icon: <Meh className="w-5 h-5 text-white" />,
         };
       case "frustrated":
         return {
           bg: "bg-red-500",
-          ring: "ring-red-200",
+          ring: "ring-red-100",
           icon: <Frown className="w-5 h-5 text-white" />,
         };
       case "anxious":
         return {
           bg: "bg-amber-500",
-          ring: "ring-amber-200",
+          ring: "ring-amber-100",
           icon: <Frown className="w-5 h-5 text-white" />,
         };
       default:
         return {
           bg: "bg-emerald-500",
-          ring: "ring-emerald-200",
+          ring: "ring-emerald-100",
           icon: <Smile className="w-5 h-5 text-white" />,
         };
     }
   };
 
   return (
-    <section className="w-full bg-white py-12 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section className="w-full bg-white py-8 sm:py-12 px-4 sm:px-6 md:px-8">
+      <div className="max-w-6xl mx-auto space-y-6 sm:space-y-10">
         {data.title && (
-          <h3 className="text-xl font-bold text-gray-900">{data.title}</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 text-center sm:text-left">
+            {data.title}
+          </h3>
         )}
 
-        <div className="relative pt-8 pb-12 overflow-x-auto">
-          <div className="min-w-175 relative px-6">
-            {/* Emotions Label on the left */}
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 text-sm font-bold text-gray-900 z-10">
+        {/* --- MOBILE VIEW: Vertical Timeline Card Stack --- */}
+        <div className="block md:hidden space-y-6 relative pl-4 border-l-2 border-dashed border-gray-200 ml-2">
+          {data.steps.map((step) => {
+            const config = getEmotionConfig(step.emotionType);
+            return (
+              <div
+                key={step.stepNumber}
+                className="relative pl-6 flex items-start space-x-4"
+              >
+                {/* Timeline Icon Node */}
+                <div
+                  className={`absolute -left-[1.35rem] top-0 w-8 h-8 rounded-full ${config.bg} flex items-center justify-center shadow-md ring-4 ring-white shrink-0`}
+                >
+                  {config.icon}
+                </div>
+
+                {/* Content */}
+                <div className="bg-gray-50/80 rounded-xl p-4 w-full border border-gray-100 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-gray-400">
+                      Step {step.stepNumber}
+                    </span>
+                    <span className="text-xs font-bold text-gray-700 bg-white px-2 py-0.5 rounded-full border border-gray-200">
+                      {step.emotion}
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-bold text-gray-900 pt-1">
+                    {step.label}
+                  </h4>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* --- DESKTOP VIEW: Horizontal Interactive Chart --- */}
+        <div className="hidden md:block relative pt-8 pb-12 overflow-x-auto no-scrollbar">
+          <div className="min-w-[700px] relative px-6">
+            {/* Emotions Label */}
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 text-xs font-bold uppercase tracking-wider text-gray-400 z-10">
               Emotions
             </span>
 
-            {/* Connecting Curved Line (SVG Path) */}
+            {/* Connecting Curve */}
             <svg
               className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-24 pointer-events-none"
               preserveAspectRatio="none"
@@ -122,21 +160,26 @@ export const JourneyMapSection: React.FC<JourneyMapSectionProps> = ({
               />
             </svg>
 
-            {/* Timeline Nodes */}
-            <div className="grid grid-cols-7 gap-2 relative z-10 pl-20">
+            {/* Dynamic Grid Column Container */}
+            <div
+              className="grid gap-4 relative z-10 pl-20"
+              style={{
+                gridTemplateColumns: `repeat(${data.steps.length}, minmax(0, 1fr))`,
+              }}
+            >
               {data.steps.map((step) => {
                 const config = getEmotionConfig(step.emotionType);
                 return (
                   <div
                     key={step.stepNumber}
-                    className="flex flex-col items-center text-center space-y-4"
+                    className="flex flex-col items-center text-center space-y-3"
                   >
-                    {/* Top Step Label */}
-                    <div className="flex flex-col items-center space-y-1 min-h-12">
-                      <span className="text-xs font-semibold text-gray-400">
-                        {step.stepNumber}
+                    {/* Top Step Info */}
+                    <div className="flex flex-col items-center space-y-1 min-h-[48px] justify-end">
+                      <span className="text-[11px] font-semibold text-gray-400">
+                        0{step.stepNumber}
                       </span>
-                      <span className="text-xs font-bold text-gray-800 leading-tight">
+                      <span className="text-xs font-bold text-gray-800 leading-tight max-w-[120px]">
                         {step.label}
                       </span>
                     </div>
@@ -144,15 +187,15 @@ export const JourneyMapSection: React.FC<JourneyMapSectionProps> = ({
                     {/* Dotted Vertical Guide */}
                     <div className="w-px h-6 border-l border-dashed border-gray-300 my-1" />
 
-                    {/* Emotion Node Circle */}
+                    {/* Node Icon */}
                     <div
-                      className={`w-9 h-9 rounded-full ${config.bg} flex items-center justify-center shadow-md ring-4 ring-white`}
+                      className={`w-9 h-9 rounded-full ${config.bg} flex items-center justify-center shadow-md ring-4 ring-white shrink-0`}
                     >
                       {config.icon}
                     </div>
 
-                    {/* Bottom Emotion Text */}
-                    <span className="text-xs font-bold text-gray-800 pt-2">
+                    {/* Bottom Label */}
+                    <span className="text-xs font-bold text-gray-800 pt-1">
                       {step.emotion}
                     </span>
                   </div>

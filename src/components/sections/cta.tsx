@@ -1,10 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const CTA: React.FC = () => {
+  const navigate = useNavigate();
   const handleContactClick = () => {
-    window.location.href = "mailto:okochristian6@gmail.com";
+    navigate("/contact");
   };
 
   return (

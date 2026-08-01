@@ -55,7 +55,7 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             className="md:col-span-6 flex justify-center md:justify-end"
           >
             <div className="relative group w-full flex justify-center md:justify-end">
-              <div className="absolute -inset-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
+              <div className="absolute -inset-2 bg-linear-to-r from-purple-100 to-blue-100 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
               <img
                 src={data.heroImage}
                 alt={`${data.title} product preview`}
@@ -66,12 +66,12 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
           </motion.div>
         </div>
 
-        {/* Project Meta Info Footer */}
+        {/* Project Meta Info Footer - Centered on desktop & mobile */}
         <motion.div
           variants={itemVariants}
-          className="pt-8 border-t border-neutral-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6"
+          className="pt-8 border-t border-neutral-100 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 text-center"
         >
-          <div>
+          <div className="text-center">
             <h4 className="text-sm sm:text-base font-semibold text-neutral-900 truncate">
               {data.project}
             </h4>
@@ -80,7 +80,7 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             </p>
           </div>
 
-          <div>
+          <div className="text-center">
             <h4 className="text-sm sm:text-base font-semibold text-neutral-900 truncate">
               {data.meta.role}
             </h4>
@@ -89,7 +89,7 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             </p>
           </div>
 
-          <div>
+          <div className="text-center">
             <h4 className="text-sm sm:text-base font-semibold text-neutral-900 truncate">
               {data.meta.sector}
             </h4>
@@ -98,7 +98,7 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             </p>
           </div>
 
-          <div>
+          <div className="text-center">
             <h4 className="text-sm sm:text-base font-semibold text-neutral-900 truncate">
               Nigeria
             </h4>
@@ -107,7 +107,7 @@ const ProjectDetailsHeader: React.FC<ProjectHeaderProps> = ({ data }) => {
             </p>
           </div>
 
-          <div>
+          <div className="text-center">
             <h4 className="text-sm sm:text-base font-semibold text-neutral-900 truncate">
               2025
             </h4>

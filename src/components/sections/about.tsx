@@ -12,7 +12,8 @@ interface CounterProps {
 const Counter: React.FC<CounterProps> = ({ value, duration = 1.2 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   useEffect(() => {
     if (!isInView) return;
@@ -70,16 +71,16 @@ const About: React.FC = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20 px-6 md:px-12 flex items-center justify-center overflow-hidden">
+    <section className="w-full bg-white py-16 sm:py-20 px-4 sm:px-6 md:px-12 flex items-center justify-center overflow-hidden">
       <motion.div
         className="max-w-6xl w-full"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-12 sm:mb-16 md:mb-20">
           <span className="text-[11px] font-semibold uppercase tracking-widest text-[#6366F1]">
             About me
           </span>
@@ -90,13 +91,13 @@ const About: React.FC = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Column: Bio Paragraph & Stats */}
-          <div className="lg:col-span-7 flex flex-col justify-between h-full">
+          <div className="lg:col-span-7 flex flex-col justify-between h-full items-center lg:items-start text-center lg:text-left">
             {/* Bio Text */}
             <motion.p
               variants={fadeUpVariants}
-              className="text-base md:text-lg text-gray-500 font-normal leading-relaxed max-w-xl mb-12"
+              className="text-base md:text-lg text-gray-500 font-normal leading-relaxed max-w-xl mb-8 sm:mb-12 mx-auto lg:mx-0"
             >
               I design the screens people almost quit on. Focused on the moments
               where trust is fragile — onboarding, KYC, checkout — and one
@@ -107,43 +108,43 @@ const About: React.FC = () => {
             {/* Stats Counter Row */}
             <motion.div
               variants={fadeUpVariants}
-              className="grid grid-cols-3 gap-4 border-t border-gray-100 pt-8"
+              className="grid grid-cols-3 gap-2 sm:gap-4 border-t border-gray-100 pt-8 w-full max-w-xl mx-auto lg:mx-0"
             >
               {/* Stat 1 */}
-              <div>
-                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
+              <div className="text-center lg:text-left">
+                <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={20} />
-                  <span className="text-gray-300 font-normal text-xl md:text-2xl ml-0.5">
+                  <span className="text-gray-300 font-normal text-lg sm:text-xl md:text-2xl ml-0.5">
                     +
                   </span>
                 </span>
-                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
+                <span className="block text-xs font-medium text-gray-400 mt-2 sm:mt-3 leading-tight sm:leading-normal">
                   Projects completed
                 </span>
               </div>
 
               {/* Stat 2 */}
-              <div>
-                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
+              <div className="text-center lg:text-left">
+                <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={8} />
                 </span>
-                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
+                <span className="block text-xs font-medium text-gray-400 mt-2 sm:mt-3 leading-tight sm:leading-normal">
                   Clients Worldwide
                 </span>
               </div>
 
               {/* Stat 3 */}
-              <div>
-                <span className="block text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
+              <div className="text-center lg:text-left">
+                <span className="block text-2xl sm:text-3xl md:text-4xl font-bold text-[#111111] leading-none tracking-tight">
                   <Counter value={4} />
-                  <span className="text-gray-300 font-normal text-xl md:text-2xl ml-0.5">
+                  <span className="text-gray-300 font-normal text-lg sm:text-xl md:text-2xl ml-0.5">
                     +
                   </span>
-                  <span className="text-xs md:text-sm font-medium text-gray-400 ml-1">
+                  <span className="text-[10px] sm:text-xs md:text-sm font-medium text-gray-400 ml-0.5 sm:ml-1">
                     years
                   </span>
                 </span>
-                <span className="block text-xs font-medium text-gray-400 mt-3 leading-normal">
+                <span className="block text-xs font-medium text-gray-400 mt-2 sm:mt-3 leading-tight sm:leading-normal">
                   Experience
                 </span>
               </div>
@@ -153,11 +154,10 @@ const About: React.FC = () => {
           {/* Right Column: Tilted Profile Portrait Card */}
           <motion.div
             variants={fadeUpVariants}
-            className="lg:col-span-5 flex justify-center lg:justify-end"
+            className="lg:col-span-5 flex justify-center lg:justify-end mt-4 lg:mt-0"
           >
             <motion.div
-              /* Fixed explicit height container */
-              className="relative w-full max-w-sm h-[360px] md:h-[420px] rounded-3xl overflow-hidden bg-gray-100 border border-gray-100 shadow-sm"
+              className="relative w-full max-w-xs sm:max-w-sm h-80 sm:h-90 md:h-105 rounded-3xl overflow-hidden bg-gray-100 border border-gray-100 shadow-sm"
               style={{ rotate: -3 }}
               whileHover={{
                 rotate: 0,
